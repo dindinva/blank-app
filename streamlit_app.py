@@ -1,6 +1,17 @@
 import streamlit as st
+from google import genai
 
-st.title("🎈 My new app")
+
+st.title("🎈 Gemini chat")
 st.write(
     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
+client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
+
+response = client.models.generate_content(
+    model="gemini-2.0-flash",
+    contents="Explain how AI works",
+)
+
+st.write(response.text)
+
