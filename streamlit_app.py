@@ -7,11 +7,12 @@ st.write(
     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
 client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
+while True:
 
-response = client.models.generate_content(
+   response = client.models.generate_content(
     model="gemini-2.0-flash",
-    contents="Explain how AI works",
+    contents=st.input("Ask me..."),
 )
 
-st.write(response.text)
+   st.write(response.text)
 
