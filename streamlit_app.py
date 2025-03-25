@@ -8,10 +8,10 @@ st.write(
 )
 client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
 while True:
-
+   ask=st.text_input("Ask me..."," ")
    response = client.models.generate_content(
     model="gemini-2.0-flash",
-    contents=st.text_input("Ask me..."," "),
+    contents=ask,
 )
 
    st.write(response.text)
