@@ -11,7 +11,7 @@ while True:
 
    response = client.models.generate_content(
     model="gemini-2.0-flash",
-    contents=st.text_input("Ask me...",""),
+    contents=st.text_input("Ask me..."," "),
 )
 
    st.write(response.text)
