@@ -15,7 +15,7 @@ if ask:
     contents=history,
 )
    answer=response.text
-   history=history+"Gemini:"+answer)
+   history=history+"Gemini:"+answer
    st.write("Gemini:"+answer)
    #st.write(history)
 
