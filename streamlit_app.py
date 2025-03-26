@@ -6,9 +6,9 @@ st.title("🎈 Gemini chat")
 st.write("Gemini:คุยได้เลยนะ")
 history=[]
 client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
-
-while True:
-   ask=st.text_input()
+ask=st.text_input()
+if ask:
+  
    history.append("ฉัน:"+ask)
    st.write("ฉัน:"+ask)
    response = client.models.generate_content(
