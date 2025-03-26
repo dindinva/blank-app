@@ -4,7 +4,6 @@ from google import genai
 
 st.title("🎈 Gemini chat")
 st.write("Gemini:คุยได้เลยนะ")
-history=[]
 global history
 client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
 ask=st.text_input("ask")
