@@ -9,7 +9,7 @@ client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
 ask=st.chat_input("ฉัน:")
 if ask:
    history.append("ฉัน:"+ask)
-   sr.write("ฉัน:"+ask)
+   st.write("ฉัน:"+ask)
    response = client.models.generate_content(
     model="gemini-2.0-flash",
     contents=history,
