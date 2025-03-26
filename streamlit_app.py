@@ -8,7 +8,7 @@ history=[]
 client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
 
 while True:
-   ask=st.input("ฉัน:")
+   ask=st.text_input("ฉัน:")
    history.append("ฉัน:"+ask)
    st.write("ฉัน:"+ask)
    response = client.models.generate_content(
