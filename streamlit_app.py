@@ -19,7 +19,7 @@ if ask:
    history.append("Gemini:"+answer)
    #st.write("Gemini:"+answer)
    st.write(history)
-   if len(history)>6:
+   if len(history)>666:
       history.pop
       history.pop
 
