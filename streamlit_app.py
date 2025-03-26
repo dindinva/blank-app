@@ -8,7 +8,7 @@ history=[]
 client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
 ask=st.text_input("ask")
 if ask:
-   global history
+   
    history.append("ฉัน:"+ask)
    st.write("ฉัน:"+ask)
    response = client.models.generate_content(
@@ -17,9 +17,9 @@ if ask:
 )
    answer=response.text
    history.append("Gemini:"+answer)
-   #st.write("Gemini:"+answer)
-   st.write(history)
-   if len(history)>666:
+   st.write("Gemini:"+answer)
+   #st.write(history)
+   if len(history)>6:
       history.pop
       history.pop
 
