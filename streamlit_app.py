@@ -8,6 +8,7 @@ client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
 
 def gen():
    global history
+   global ask
    history.append("ฉัน:"+ask)
    st.write("ฉัน:"+ask)
    st.session_state["me"]=""
