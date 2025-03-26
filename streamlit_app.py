@@ -12,5 +12,5 @@ if ask:
     contents=ask,
 )
 
-   st.write_stream("Gemini:"+response.text)
+   st.write_stream(response.text)
 
