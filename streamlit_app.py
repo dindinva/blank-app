@@ -13,7 +13,7 @@ if ask:
     contents=ask,
 )
    answer=response.text
-   st.write("Gemini:"+answer)
+   st.write_stream("Gemini:"+answer)
 
    
 
