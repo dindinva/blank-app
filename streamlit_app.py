@@ -5,15 +5,15 @@ from google import genai
 st.title("🎈 Gemini chat")
 st.write("Gemini:คุยได้เลยนะ")
 client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
-ask=st.text_input("ฉัน")
+ask=st.text_input("คุยอะไรดี")
 if ask:
-   st.write("ฉัน:"+ask)
+ 
    response = client.models.generate_content(
     model="gemini-2.0-flash",
     contents=ask,
 )
-   answer=response.text
-   st.write_stream("Gemini:"+answer)
+
+   st.write_stream(response.text)
 
    
 
