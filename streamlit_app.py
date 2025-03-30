@@ -6,12 +6,12 @@ from google import genai
 
 try:
     #gemini_api_key = os.environ['GOOGLE_GEMINI_KEY']
-    genai.configure(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
+    client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
     model = genai.GenerativeModel('gemini-2.0-flash')
 
     if "chat" not in st.session_state:
       st.session_state.chat = model.start_chat(history=[])
-    st.title('Gemini Pro Test')
+    st.title('Gemini-2.0 chatbot')
 
     def role_to_streamlit(role: str) -> str:
       if role == 'model':
