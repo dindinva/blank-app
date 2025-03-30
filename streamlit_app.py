@@ -21,7 +21,7 @@ if prompt := st.chat_input("What is up?"):
         st.markdown(prompt)
 
     with st.chat_message("assistant"):
-        stream = client.chat.completions.create(
+        stream = client.models.generate_content(
             model=st.session_state["genai_model"],
             messages=[
                 {"role": m["role"], "content": m["content"]}
