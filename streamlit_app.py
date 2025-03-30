@@ -1,4 +1,4 @@
-gemini chatbot
+#gemini chatbot
 
 #import os
 import streamlit as st
