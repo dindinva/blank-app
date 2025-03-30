@@ -23,7 +23,7 @@ if prompt := st.chat_input("What is up?"):
     with st.chat_message("assistant"):
         stream = client.models.generate_content(
             model=st.session_state["genai_model"],
-            messages=[
+            content=[
                 {"role": m["role"], "content": m["content"]}
                 for m in st.session_state.messages
             ],
