@@ -5,9 +5,6 @@ st.title("Gemini-like clone")
 
 client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
 
-if "genai_model" not in st.session_state:
-    st.session_state["genai_model"] = "gemini-2.0-flash"
-
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -23,5 +20,5 @@ if prompt := st.chat_input("What is up?"):
     with st.chat_message("assistant"):
         stream = client.models.generate_content(model="gemini-2.0-flash",contents="hello")
         st.write(stream.text)
-    st.session_state.messages.append({"role": "assistant", "content": stream})
+    st.session_state.messages.append({"role": "assistant", "content": prompt})
     
