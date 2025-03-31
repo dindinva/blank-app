@@ -19,6 +19,7 @@ if prompt := st.chat_input("What is up?"):
 
     with st.chat_message("assistant"):
         stream = client.models.generate_content(model="gemini-2.0-flash",contents=prompt)
-        st.write(stream.text)
-    st.session_state.messages.append({"role": "assistant", "content": stream})
+        response=stream.text
+        st.write(response)
+    st.session_state.messages.append({"role": "assistant", "content": response})
     
