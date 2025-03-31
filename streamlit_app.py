@@ -23,7 +23,7 @@ if prompt := st.chat_input("What is up?"):
         stream = client.models.generate_content(model="gemini-2.0-flash",contents=prompt)
         response=stream.text
         st.write(response)
-        history=""
+        history=history+response+" "
     st.session_state.messages.append({"role": "assistant", "content": response})
     if len(st.session_state.messages)>=6:
         st.session_state.messages.pop(0)
