@@ -11,7 +11,7 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-        if message["role"]=="user":history=history+message["content"]+" "
+        history=history+message["role"]+" "+message["content"]+" "
 
 if prompt := st.chat_input("What is up?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
@@ -23,7 +23,7 @@ if prompt := st.chat_input("What is up?"):
         stream = client.models.generate_content(model="gemini-2.0-flash",contents=prompt)
         response=stream.text
         st.write(response)
-        history=history+response+" "
+        history=""
     st.session_state.messages.append({"role": "assistant", "content": response})
     if len(st.session_state.messages)>=10:
         st.session_state.messages.pop(0)
