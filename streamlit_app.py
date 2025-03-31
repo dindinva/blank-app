@@ -25,4 +25,6 @@ if prompt := st.chat_input("What is up?"):
         st.write(response)
         history=""
     st.session_state.messages.append({"role": "assistant", "content": response})
-    
+    if len(st.session_state.messages)>=6:
+        st.session_state.messages.pop
+        st.session_state.messages.pop
