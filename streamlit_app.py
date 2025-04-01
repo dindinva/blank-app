@@ -1,30 +1,23 @@
+#gemini live chat
+import asyncio
 from google import genai
-import streamlit as st
 
-st.title("Gemini-like chatbot")
+client = genai.Client(api_key="GEMINI_API_KEY", http_options={'api_version': 'v1alpha'})
+model = "gemini-2.0-flash-exp"
 
-client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY")
-history=""
-if "messages" not in st.session_state:
-    st.session_state.messages = []
+config = {"response_modalities": ["TEXT"]}
 
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-        history=history+message["role"]+" "+message["content"]+" "
+async def main():
+    async with client.aio.live.connect(model=model, config=config) as session:
+        while True:
+            message = input("User> ")
+            if message.lower() == "exit":
+                break
+            await session.send(input=message, end_of_turn=True)
 
-if prompt := st.chat_input("What is up?"):
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
-    prompt=history+prompt
+            async for response in session.receive():
+                if response.text is not None:
+                    print(response.text, end="")
 
-    with st.chat_message("assistant"):
-        stream = client.models.generate_content(model="gemini-2.0-flash",contents=prompt)
-        response=stream.text
-        st.write(response)
-        history=""
-    st.session_state.messages.append({"role": "assistant", "content": response})
-    if len(st.session_state.messages)>=10:
-        st.session_state.messages.pop(0)
-        st.session_state.messages.pop(0)
+if __name__ == "__main__":
+    asyncio.run(main())
