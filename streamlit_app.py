@@ -3,8 +3,8 @@ import asyncio
 from google import genai
 import streamlit as st
 
-client = genai.Client(api_key="GEMINI_API_KEY", http_options={'api_version': 'v1alpha'})
-model = "gemini-2.0-flash-exp"
+client = genai.Client(api_key="AIzaSyD02r_b6nn1lzkEjA6dCewkDfNCgkY5IIY", http_options={'api_version': 'v1alpha'})
+model = "gemini-2.0-flash"
 
 config = {"response_modalities": ["TEXT"]}
 
